@@ -1,0 +1,890 @@
+/* ============================================================================
+   frame — styles.css
+   Sistema de diseño minimalista corporativo con efecto glassmorphism.
+   Organizado por módulos: Tokens, Base, Utilidades, Header, Hero,
+   Value, Services, Footer y Responsive.
+============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   0. FUENTES LOCALES (Avenir)
+---------------------------------------------------------------------------- */
+@font-face {
+    font-family: "Avenir";
+    src: url("../assets/fonts/Avenir/Avenir Light/Avenir Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Avenir";
+    src: url("../assets/fonts/Avenir/Avenir Book/Avenir Book.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Avenir";
+    src: url("../assets/fonts/Avenir/Avenir Regular/Avenir Regular.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Avenir";
+    src: url("../assets/fonts/Avenir/Avenir Heavy/Avenir Heavy.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Avenir";
+    src: url("../assets/fonts/Avenir/Avenir Black/Avenir Black.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ----------------------------------------------------------------------------
+   1. DESIGN TOKENS (Variables CSS)
+   Paleta base oscura + 4 acentos corporativos y tokens reutilizables.
+---------------------------------------------------------------------------- */
+:root {
+    /* Base oscura/clara minimalista */
+    --color-bg: #0a0b0f;            /* Fondo principal (oscuro) */
+    --color-bg-alt: #0f1118;        /* Fondo de secciones alternas */
+    --color-surface: #141722;       /* Superficie sólida elevada */
+    --color-text: #f4f6fb;          /* Texto principal claro */
+    --color-text-muted: #9aa3b2;    /* Texto secundario atenuado */
+
+    /* Cuatro colores de acento clave */
+    --accent-blue: #2f81f7;         /* Azul Tech */
+    --accent-green: #2ecc71;        /* Verde */
+    --accent-yellow: #f5c518;       /* Amarillo */
+    --accent-red: #ff4d4d;          /* Rojo */
+
+    /* Glassmorphism (estilo Apple) */
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-bg-strong: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.14);
+    --glass-blur: 18px;
+
+    /* Tipografía */
+    --font-base: "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    /* Radios, sombras y layout */
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.45);
+    --max-width: 1200px;
+
+    /* Transiciones aceleradas por hardware */
+    --transition: transform 0.35s ease, background 0.35s ease, filter 0.35s ease,
+        box-shadow 0.35s ease, color 0.25s ease, border-color 0.35s ease;
+}
+
+/* ----------------------------------------------------------------------------
+   2. BASE / RESET
+   Normaliza el box model y define estilos tipográficos globales.
+---------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-base);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img,
+canvas {
+    display: block;
+    max-width: 100%;
+}
+
+/* ----------------------------------------------------------------------------
+   3. UTILIDADES
+   Clases auxiliares reutilizables a lo largo del documento.
+---------------------------------------------------------------------------- */
+
+/* .section-shell — contenedor centrado con ancho máximo y padding lateral */
+.section-shell {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* .section-head — cabecera de sección centrada */
+.section-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 3.5rem;
+}
+
+/* .section-eyebrow — etiqueta superior pequeña en mayúsculas */
+.section-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    margin-bottom: 0.75rem;
+}
+
+/* .section-title — título principal de sección */
+.section-title {
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* .section-lead — párrafo introductorio atenuado */
+.section-lead {
+    margin-top: 1rem;
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+}
+
+/* Acentos de texto reutilizables */
+.accent-text { color: var(--accent-blue); }
+.accent-blue { color: var(--accent-blue); }
+.accent-green { color: var(--accent-green); }
+.accent-yellow { color: var(--accent-yellow); }
+.accent-red { color: var(--accent-red); }
+
+/* .glass-panel — superficie con efecto glassmorphism */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+}
+
+/* ----------------------------------------------------------------------------
+   4. BOTONES
+   Sistema de botones con variantes primaria, glass y ghost.
+---------------------------------------------------------------------------- */
+
+/* .btn — base compartida por todas las variantes */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.6rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: var(--transition);
+    will-change: transform;
+}
+
+/* .btn-primary — acción principal en azul tech */
+.btn-primary {
+    background: var(--accent-blue);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(47, 129, 247, 0.35);
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 14px 32px rgba(47, 129, 247, 0.45);
+}
+
+/* .btn-glass — botón con efecto glassmorphism (Acceso Clientes) */
+.btn-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    color: var(--color-text);
+}
+.btn-glass:hover {
+    background: var(--glass-bg-strong);
+    transform: translateY(-2px);
+}
+
+/* .btn-ghost — botón secundario sin relleno */
+.btn-ghost {
+    background: transparent;
+    border-color: var(--glass-border);
+    color: var(--color-text);
+}
+.btn-ghost:hover {
+    background: var(--glass-bg);
+    transform: translateY(-2px);
+}
+
+/* .btn-block — botón a todo el ancho del contenedor */
+.btn-block {
+    width: 100%;
+}
+
+/* ----------------------------------------------------------------------------
+   5. BRAND (Logotipo)
+   Marca textual con marcador geométrico de acento.
+---------------------------------------------------------------------------- */
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 700;
+}
+
+/* .brand-mark — cuadro de acento que precede al nombre */
+.brand-mark {
+    width: 24px;
+    height: 24px;
+    border-radius: 7px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+}
+
+/* .brand-cube — cubo 3D rotatorio (model-viewer) que sustituye al cuadro de acento */
+.brand-cube {
+    width: 56px;
+    height: 56px;
+    background: transparent;
+    border-radius: 0;
+    --poster-color: transparent;
+    pointer-events: none;
+}
+
+/* .brand-name — nombre de la marca en minúscula */
+.brand-name {
+    font-size: 4rem;
+    letter-spacing: -0.03em;
+}
+
+/* ----------------------------------------------------------------------------
+   6. GLOBAL HEADER
+   Cabecera fija con navegación y efecto glass al hacer scroll.
+---------------------------------------------------------------------------- */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: transparent;
+    border-bottom: none;
+    transition: var(--transition);
+}
+
+/* .header-inner — fila interna del header (posición relativa para centrar la caja) */
+.header-inner {
+    position: relative;
+    padding: 0.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+/* .nav-glass — caja central liquid glass con los 4 botones, centrada absolutamente */
+.nav-glass {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+/* .main-nav — fila de botones dentro de la caja de cristal */
+.main-nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    /* Mismo alto que el botón de login (.action-btn): icono 1.6rem + padding 0.72rem*2 */
+    min-height: 3.04rem;
+}
+
+.main-nav::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 92px;
+    height: 100%;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.48);
+    box-shadow:
+        inset 1px 1px 1px rgba(255, 255, 255, 0.75),
+        inset -1px -1px 1px rgba(255, 255, 255, 0.45),
+        0 10px 28px rgba(0, 0, 0, 0.12);
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1), width 0.42s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+    pointer-events: none;
+}
+
+/* .nav-btn — botón de navegación uniforme */
+.nav-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.72rem 1rem;
+    width: 100px;
+    font-size: 1.02rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+    border-radius: 999px;
+    overflow: hidden;
+    isolation: isolate;
+    transition: var(--transition);
+    z-index: 1;
+}
+
+/* Slider: 5 botones de 100px con gap 0.2rem */
+.main-nav[data-active="1"]::before { width: 100px; transform: translateX(0); }
+.main-nav[data-active="2"]::before { width: 100px; transform: translateX(calc(100px + 0.2rem)); }
+.main-nav[data-active="3"]::before { width: 100px; transform: translateX(calc((100px + 0.2rem) * 2)); }
+.main-nav[data-active="4"]::before { width: 100px; transform: translateX(calc((100px + 0.2rem) * 3)); }
+.main-nav[data-active="5"]::before { width: 100px; transform: translateX(calc((100px + 0.2rem) * 4)); }
+
+/* .header-actions — grupo de botones de acción a la derecha */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-left: auto;
+}
+
+/* .action-btn — botón de login: mismo estilo tipográfico que .nav-btn */
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.72rem 1.3rem;
+    font-family: var(--font-base);
+    font-size: 1.02rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+    background: none;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.action-btn .material-symbols-rounded {
+    font-size: 1.6rem;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 40;
+}
+
+/* .theme-toggle — contenedor del control deslizante de tema */
+.theme-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+/* Slider del theme toggle — mismo tamaño que .theme-btn */
+.theme-toggle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 100%;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.22);
+    box-shadow:
+        inset 1px 1px 1px rgba(255, 255, 255, 0.55),
+        inset -1px -1px 1px rgba(255, 255, 255, 0.28),
+        0 12px 34px rgba(0, 0, 0, 0.08);
+    transform: translateX(0);
+    transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 0;
+}
+.theme-toggle[data-theme="light"]::before {
+    transform: translateX(calc(48px + 0.2rem));
+}
+
+/* .theme-btn — cada icono del toggle, mismo alto que .nav-btn */
+.theme-btn {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: none;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.92);
+}
+.theme-btn .material-symbols-rounded {
+    font-size: 1.7rem;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 40;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* .nav-toggle — botón hamburguesa (visible solo en móvil) */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 0.4rem;
+}
+.nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    border-radius: 2px;
+}
+
+/* ----------------------------------------------------------------------------
+   7. HERO SECTION
+   Banner de pantalla completa con lienzo 3D de fondo y contenido superpuesto.
+---------------------------------------------------------------------------- */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 640px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* .hero-canvas — capa de fondo del hero (eje Z bajo) */
+.hero-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+.hero-canvas img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* .hero-content — capa de contenido superpuesta (eje Z superior) */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    padding: 0 1.5rem;
+}
+
+/* .hero-eyebrow — etiqueta superior del hero */
+.hero-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+}
+
+/* .hero-title — título corporativo principal */
+.hero-title {
+    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+}
+
+/* .hero-subtitle — subtítulo descriptivo */
+.hero-subtitle {
+    margin: 1.5rem auto 2.5rem;
+    max-width: 540px;
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+}
+
+/* .hero-actions — contenedor de botones CTA */
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* .scroll-cue — indicador de scroll en la parte inferior */
+.scroll-cue {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 26px;
+    height: 42px;
+    border: 2px solid var(--glass-border);
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+    z-index: 1;
+}
+.scroll-cue-dot {
+    width: 4px;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--color-text);
+    animation: scrollCue 1.6s ease-in-out infinite;
+}
+@keyframes scrollCue {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(10px); opacity: 0.3; }
+}
+
+/* ----------------------------------------------------------------------------
+   8. VALUE PROPOSITION
+   Bloque limpio con cuadrícula minimalista de propuestas.
+---------------------------------------------------------------------------- */
+.value {
+    padding: 7rem 0;
+    background: var(--color-bg-alt);
+}
+
+/* .value-grid — rejilla de tres columnas adaptable */
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+/* .value-item — tarjeta individual de propuesta de valor */
+.value-item {
+    padding: 2.2rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    transition: var(--transition);
+}
+.value-item:hover {
+    transform: translateY(-6px);
+    background: var(--glass-bg-strong);
+}
+
+/* .value-index — número de orden con color de acento */
+.value-index {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+/* .value-item-title — título de la propuesta */
+.value-item-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+}
+
+/* .value-item-text — descripción atenuada */
+.value-item-text {
+    color: var(--color-text-muted);
+    font-size: 0.98rem;
+}
+
+/* ----------------------------------------------------------------------------
+   9. SERVICES SHOWCASE
+   Rejilla interactiva de tarjetas con micro-intercambio de color en hover.
+---------------------------------------------------------------------------- */
+.services {
+    padding: 7rem 0;
+}
+
+/* .services-grid — rejilla responsiva de servicios */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* .service-card — tarjeta de servicio con glassmorphism */
+.service-card {
+    position: relative;
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    overflow: hidden;
+    transition: var(--transition);
+}
+.service-card:hover {
+    transform: translateY(-8px);
+    background: var(--glass-bg-strong);
+}
+
+/* .service-icon — marcador de posición para el icono del servicio */
+.service-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    background: var(--glass-bg-strong);
+    border: 1px solid var(--glass-border);
+    transition: var(--transition);
+}
+
+/* .service-title — nombre del servicio */
+.service-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.7rem;
+}
+
+/* .service-text — descripción del servicio */
+.service-text {
+    color: var(--color-text-muted);
+    font-size: 0.98rem;
+    margin-bottom: 1.5rem;
+}
+
+/* .service-link — enlace inferior tipo "Saber más" */
+.service-link {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    transition: var(--transition);
+}
+
+/* Micro-intercambio de color por acento corporativo (data-accent) */
+.service-card[data-accent="blue"]:hover { border-color: var(--accent-blue); }
+.service-card[data-accent="blue"]:hover .service-icon { background: var(--accent-blue); border-color: var(--accent-blue); }
+.service-card[data-accent="blue"]:hover .service-link { color: var(--accent-blue); }
+
+.service-card[data-accent="green"]:hover { border-color: var(--accent-green); }
+.service-card[data-accent="green"]:hover .service-icon { background: var(--accent-green); border-color: var(--accent-green); }
+.service-card[data-accent="green"]:hover .service-link { color: var(--accent-green); }
+
+.service-card[data-accent="yellow"]:hover { border-color: var(--accent-yellow); }
+.service-card[data-accent="yellow"]:hover .service-icon { background: var(--accent-yellow); border-color: var(--accent-yellow); }
+.service-card[data-accent="yellow"]:hover .service-link { color: var(--accent-yellow); }
+
+/* ----------------------------------------------------------------------------
+   10. GLOBAL FOOTER
+   Pie con formulario de contacto, datos, redes y nota legal.
+---------------------------------------------------------------------------- */
+.site-footer {
+    background: var(--color-bg-alt);
+    padding-top: 6rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+/* .footer-grid — distribución en dos columnas (formulario + info) */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    padding-bottom: 4rem;
+}
+
+/* .footer-form-wrap — panel glass que contiene el formulario */
+.footer-form-wrap {
+    padding: 2.5rem;
+}
+
+/* .footer-title — título de la columna */
+.footer-title {
+    font-size: 1.7rem;
+    margin-bottom: 1.8rem;
+    letter-spacing: -0.02em;
+}
+
+/* .contact-form / .field — formulario y agrupación de campos */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.field label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+}
+
+/* Campos de entrada con estado de foco en azul tech */
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    resize: vertical;
+}
+.field input::placeholder,
+.field textarea::placeholder {
+    color: rgba(154, 163, 178, 0.6);
+}
+.field input:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+/* .footer-info — columna con datos de contacto y redes */
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.brand-footer .brand-name {
+    font-size: 1.6rem;
+}
+
+/* .footer-tagline — eslogan del pie */
+.footer-tagline {
+    color: var(--color-text-muted);
+    max-width: 320px;
+}
+
+/* .contact-details — lista de teléfono y correo */
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.contact-label {
+    display: block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.2rem;
+}
+.contact-value {
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+.contact-value:hover {
+    color: var(--accent-blue);
+}
+
+/* .social-links / .social-link — enlaces a redes con efecto glass */
+.social-links {
+    display: flex;
+    gap: 0.75rem;
+}
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    transition: var(--transition);
+}
+.social-link:hover {
+    transform: translateY(-3px);
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+    color: #fff;
+}
+
+/* .footer-legal — fila de cierre con la nota de derechos reservados */
+.footer-legal {
+    border-top: 1px solid var(--glass-border);
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.88rem;
+}
+
+/* ----------------------------------------------------------------------------
+   11. RESPONSIVE
+   Ajustes para tablet y móvil.
+---------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+    /* Caja de navegación y acciones ocultas tras hamburguesa */
+    .nav-glass,
+    .header-actions {
+        display: none;
+    }
+    .nav-toggle {
+        display: flex;
+    }
+
+    /* Footer pasa a una sola columna */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 540px) {
+    .value,
+    .services {
+        padding: 4.5rem 0;
+    }
+    .footer-form-wrap {
+        padding: 1.8rem;
+    }
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Respeta la preferencia de movimiento reducido del usuario */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto;
+    }
+}

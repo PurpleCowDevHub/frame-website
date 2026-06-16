@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="frame — agencia de desarrollo web profesional. Sitios web, e-commerce y landing pages de alto rendimiento." />
+    <title>frame — Agencia de Desarrollo Web</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+</head>
+<body>
+    <!-- ============================================================
+         1. GLOBAL HEADER (Navegación fija)
+    ============================================================= -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-inner">
+            <a href="#hero" class="brand" aria-label="frame — inicio">
+                <model-viewer
+                    class="brand-mark brand-cube"
+                    src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Box/glTF-Binary/Box.glb"
+                    alt="Cubo 3D del logo de frame"
+                    auto-rotate
+                    auto-rotate-delay="0"
+                    rotation-per-second="45deg"
+                    camera-controls="false"
+                    disable-zoom
+                    disable-pan
+                    disable-tap
+                    interaction-prompt="none"
+                    shadow-intensity="0"
+                    exposure="1.1"
+                    aria-hidden="true">
+                </model-viewer>
+                <span class="brand-name">frame</span>
+            </a>
+
+            <!-- Barra de navegación central con liquid glass -->
+            <glass-element
+                class="nav-glass"
+                auto-size
+                radius="999"
+                depth="10"
+                blur="2"
+                strength="50"
+                chromatic-aberration="3"
+                background-color="rgba(255, 255, 255, 0.06)"
+                style="--glass-padding: 6px;">
+                <nav class="main-nav" aria-label="Navegación principal" data-active="1">
+                    <a href="#hero"       class="nav-btn">Home</a>
+                    <a href="#valor"      class="nav-btn">Nosotros</a>
+                    <a href="#servicios"  class="nav-btn">Servicios</a>
+                    <a href="#precios"    class="nav-btn">Precios</a>
+                    <a href="#contacto"   class="nav-btn">Contacto</a>
+                </nav>
+            </glass-element>
+
+            <!-- Botones de acción derechos: tema (izq) + login (der) -->
+            <div class="header-actions">
+                <!-- Botón tema claro/oscuro -->
+                <glass-element
+                    class="action-glass theme-glass"
+                    auto-size
+                    radius="999"
+                    depth="10"
+                    blur="2"
+                    strength="50"
+                    chromatic-aberration="3"
+                    background-color="rgba(255, 255, 255, 0.06)"
+                    style="--glass-padding: 6px;">
+                    <div class="theme-toggle" id="themeToggle" role="group" aria-label="Tema" data-theme="dark">
+                        <button class="theme-btn" data-value="dark"  aria-label="Tema oscuro">
+                            <span class="material-symbols-rounded">dark_mode</span>
+                        </button>
+                        <button class="theme-btn" data-value="light" aria-label="Tema claro">
+                            <span class="material-symbols-rounded">light_mode</span>
+                        </button>
+                    </div>
+                </glass-element>
+
+                <!-- Botón login -->
+                <glass-element
+                    class="action-glass"
+                    auto-size
+                    radius="999"
+                    depth="10"
+                    blur="2"
+                    strength="50"
+                    chromatic-aberration="3"
+                    background-color="rgba(255, 255, 255, 0.06)"
+                    style="--glass-padding: 6px;">
+                    <button class="action-btn" id="loginBtn" type="button" aria-label="Login">
+                        <span class="material-symbols-rounded">person</span>
+                        Login
+                    </button>
+                </glass-element>
+            </div>
+
+            <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ============================================================
+             2. HERO SECTION (Banner de entrada — 100vh)
+        ============================================================= -->
+        <section class="hero" id="hero">
+            <!-- Marcador de posición para el lienzo de renderizado 3D -->
+            <div class="hero-canvas" id="hero-canvas-3d" aria-hidden="true">
+                <img src="assets/img/windows-11-abstracto-claro_3840x2160_xtrafondos.com.jpg" alt="" />
+            </div>
+
+            <!-- Capa de contenido superpuesta (eje Z) -->
+            <div class="hero-content">
+                <p class="hero-eyebrow">Agencia de desarrollo web</p>
+                <h1 class="hero-title">
+                    Construimos la web<br />
+                    que tu marca <span class="accent-text">merece</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Diseño elegante, código impecable y rendimiento de élite.
+                    Transformamos ideas en experiencias digitales memorables.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contacto" class="btn btn-primary" id="heroCta">Inicia tu proyecto</a>
+                    <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+                </div>
+            </div>
+
+            <a href="#valor" class="scroll-cue" aria-label="Desplázate hacia abajo">
+                <span class="scroll-cue-dot"></span>
+            </a>
+        </section>
+
+        <!-- ============================================================
+             3. VALUE PROPOSITION (Propuesta de valor)
+        ============================================================= -->
+        <section class="value" id="valor">
+            <div class="section-shell">
+                <header class="section-head">
+                    <p class="section-eyebrow">Nuestra filosofía</p>
+                    <h2 class="section-title">Código limpio. Diseño con propósito.</h2>
+                    <p class="section-lead">
+                        Cada línea que escribimos persigue dos objetivos: rendimiento
+                        técnico medible y una excelencia visual que enamora.
+                    </p>
+                </header>
+
+                <div class="value-grid">
+                    <article class="value-item">
+                        <span class="value-index accent-blue">01</span>
+                        <h3 class="value-item-title">Rendimiento real</h3>
+                        <p class="value-item-text">
+                            Optimización exhaustiva: carga instantánea, métricas Core
+                            Web Vitals en verde y arquitectura escalable.
+                        </p>
+                    </article>
+                    <article class="value-item">
+                        <span class="value-index accent-green">02</span>
+                        <h3 class="value-item-title">Diseño a medida</h3>
+                        <p class="value-item-text">
+                            Interfaces minimalistas y memorables, construidas alrededor
+                            de la identidad única de tu marca.
+                        </p>
+                    </article>
+                    <article class="value-item">
+                        <span class="value-index accent-yellow">03</span>
+                        <h3 class="value-item-title">Detalle obsesivo</h3>
+                        <p class="value-item-text">
+                            Microinteracciones, transiciones fluidas y una atención al
+                            detalle que se siente en cada clic.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             4. SERVICES SHOWCASE (Muestra de servicios)
+        ============================================================= -->
+        <section class="services" id="servicios">
+            <div class="section-shell">
+                <header class="section-head">
+                    <p class="section-eyebrow">Qué hacemos</p>
+                    <h2 class="section-title">Servicios</h2>
+                    <p class="section-lead">
+                        Soluciones digitales completas, pensadas para crecer contigo.
+                    </p>
+                </header>
+
+                <div class="services-grid">
+                    <article class="service-card" data-accent="blue">
+                        <div class="service-icon" aria-hidden="true"></div>
+                        <h3 class="service-title">Sitios Web</h3>
+                        <p class="service-text">
+                            Sitios corporativos rápidos, responsivos y optimizados para
+                            convertir visitantes en clientes.
+                        </p>
+                        <span class="service-link">Saber más</span>
+                    </article>
+
+                    <article class="service-card" data-accent="green">
+                        <div class="service-icon" aria-hidden="true"></div>
+                        <h3 class="service-title">E-commerce</h3>
+                        <p class="service-text">
+                            Tiendas online seguras y escalables, con experiencias de
+                            compra impecables en cualquier dispositivo.
+                        </p>
+                        <span class="service-link">Saber más</span>
+                    </article>
+
+                    <article class="service-card" data-accent="yellow">
+                        <div class="service-icon" aria-hidden="true"></div>
+                        <h3 class="service-title">Landing Pages</h3>
+                        <p class="service-text">
+                            Páginas de aterrizaje de alto impacto, diseñadas para
+                            maximizar conversiones en tus campañas.
+                        </p>
+                        <span class="service-link">Saber más</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================================
+         5. GLOBAL FOOTER (Pie de página)
+    ============================================================= -->
+    <footer class="site-footer" id="contacto">
+        <div class="section-shell footer-grid">
+            <!-- Formulario de contacto -->
+            <div class="footer-form-wrap glass-panel">
+                <h2 class="footer-title">Hablemos de tu proyecto</h2>
+                <form class="contact-form" id="contactForm" novalidate>
+                    <div class="field">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" placeholder="Tu nombre" autocomplete="name" />
+                    </div>
+                    <div class="field">
+                        <label for="email">Correo</label>
+                        <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" />
+                    </div>
+                    <div class="field">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+57 300 000 0000" autocomplete="tel" />
+                    </div>
+                    <div class="field">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Cuéntanos qué necesitas"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Enviar mensaje</button>
+                </form>
+            </div>
+
+            <!-- Información de contacto + redes -->
+            <div class="footer-info">
+                <a href="#hero" class="brand brand-footer">
+                    <span class="brand-mark"></span>
+                    <span class="brand-name">frame</span>
+                </a>
+                <p class="footer-tagline">
+                    Desarrollo web profesional para marcas que apuntan alto.
+                </p>
+
+                <ul class="contact-details">
+                    <li>
+                        <span class="contact-label">Teléfono</span>
+                        <a href="tel:+573000000000" class="contact-value">+57 300 000 0000</a>
+                    </li>
+                    <li>
+                        <span class="contact-label">Correo</span>
+                        <a href="mailto:contacto@frame.com" class="contact-value">contacto@frame.com</a>
+                    </li>
+                </ul>
+
+                <ul class="social-links" aria-label="Redes sociales">
+                    <li><a href="#" class="social-link" aria-label="Instagram">IG</a></li>
+                    <li><a href="#" class="social-link" aria-label="LinkedIn">IN</a></li>
+                    <li><a href="#" class="social-link" aria-label="X (Twitter)">X</a></li>
+                    <li><a href="#" class="social-link" aria-label="GitHub">GH</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Fila de cierre legal -->
+        <div class="footer-legal">
+            <p>&copy; <span id="year">2026</span> frame. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+         LIQUID GLASS — Web Component (efecto de cristal líquido)
+         Debe cargarse displacement-utils.js antes que glass-element.js
+    ============================================================= -->
+    <script src="js/vendor/liquid-glass/displacement-utils.js"></script>
+    <script src="js/vendor/liquid-glass/glass-element.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
