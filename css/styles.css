@@ -264,14 +264,46 @@ canvas {
     background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
 }
 
-/* .brand-cube — cubo 3D rotatorio (model-viewer) que sustituye al cuadro de acento */
+/* .brand-cube-wrap — contenedor relativo para cubo + sombra */
+.brand-cube-wrap {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 58px;
+}
+
+/* .brand-cube — cubo 3D flotante */
 .brand-cube {
-    width: 56px;
-    height: 56px;
+    width: 58px;
+    height: 58px;
     background: transparent;
     border-radius: 0;
     --poster-color: transparent;
     pointer-events: none;
+    filter: saturate(0) brightness(10);
+    animation: cube-float 2.4s ease-in-out infinite;
+}
+
+/* .brand-cube-shadow — elipse que se achica cuando el cubo sube */
+.brand-cube-shadow {
+    display: block;
+    width: 34px;
+    height: 7px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, transparent 75%);
+    animation: cube-shadow 2.4s ease-in-out infinite;
+    margin-top: -6px;
+}
+
+@keyframes cube-float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-10px); }
+}
+
+@keyframes cube-shadow {
+    0%, 100% { transform: scaleX(1);    opacity: 0.6; }
+    50%       { transform: scaleX(0.6); opacity: 0.25; }
 }
 
 /* .brand-name — nombre de la marca en minúscula */
@@ -384,7 +416,7 @@ canvas {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    padding: 0.72rem 1.3rem;
+    padding: 0.72rem 1.3rem 0.72rem 1rem;
     font-family: var(--font-base);
     font-size: 1.02rem;
     font-weight: 500;
@@ -399,7 +431,7 @@ canvas {
     white-space: nowrap;
 }
 .action-btn .material-symbols-rounded {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 40;
 }
 
@@ -485,20 +517,27 @@ canvas {
     justify-content: center;
     text-align: center;
     overflow: hidden;
+    /* Coincide con el offset del marco para centrar el contenido dentro de la imagen */
+    padding: 6rem 1.5rem 1.5rem;
 }
 
-/* .hero-canvas — capa de fondo del hero (eje Z bajo) */
+/* .hero-canvas — capa de fondo del hero (eje Z bajo) con marco */
 .hero-canvas {
     position: absolute;
-    inset: 0;
+    top: 6rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 1.5rem;
     z-index: 0;
     overflow: hidden;
+    border-radius: 40px;
 }
 .hero-canvas img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+    border-radius: 40px;
 }
 
 /* .hero-content — capa de contenido superpuesta (eje Z superior) */
@@ -507,6 +546,29 @@ canvas {
     z-index: 1;
     max-width: 760px;
     padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Botón de portafolio con efecto glass */
+.hero-portfolio-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.72rem 1.6rem;
+    font-size: 1.02rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+    background: none;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
 /* .hero-eyebrow — etiqueta superior del hero */
@@ -519,12 +581,72 @@ canvas {
     margin-bottom: 1.25rem;
 }
 
-/* .hero-title — título corporativo principal */
+/* .hero-title — título corporativo editorial */
 .hero-title {
-    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+    text-wrap: balance;
+}
+
+/* Línea 1 — etiqueta superior delgada y elegante */
+.hero-title-eyebrow {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+    margin-bottom: 0.6rem;
+}
+
+/* Línea 2 — protagonista en sans condensada y peso fuerte */
+.hero-title-main {
+    font-size: clamp(2.8rem, 8vw, 6rem);
     font-weight: 800;
-    line-height: 1.05;
     letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Línea 3 — remate script estilo Apple "air" */
+.hero-title-accent {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: "Dancing Script", "Brush Script MT", cursive;
+    font-weight: 600;
+    font-size: 5rem;
+    letter-spacing: 0;
+    line-height: 1;
+    margin-top: -0.1rem;
+    filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.45));
+}
+
+/* .shimmer-word — palabra con degradado estático blanco→azul */
+.shimmer-word {
+    display: inline-block;
+    padding: 0 0.12em;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* Diagonal ascendente (izq-abajo → der-arriba) */
+.shimmer-word.dir-up {
+    background-image: linear-gradient(45deg, #ffffff 0%, var(--accent-blue) 100%);
+}
+
+/* Diagonal descendente (izq-arriba → der-abajo) */
+.shimmer-word.dir-down {
+    background-image: linear-gradient(135deg, #ffffff 0%, var(--accent-blue) 100%);
+}
+
+/* Vertical con leve rotación (blanco abajo → azul arriba) */
+.shimmer-word.dir-flat {
+    background-image: linear-gradient(5deg, #ffffff 0%, var(--accent-blue) 100%);
 }
 
 /* .hero-subtitle — subtítulo descriptivo */
