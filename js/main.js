@@ -40,4 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // El carrusel fue reemplazado por una rejilla estática de tarjetas glass.
 });

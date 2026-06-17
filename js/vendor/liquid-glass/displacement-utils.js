@@ -8,6 +8,12 @@
  * Los gradientes toman en cuenta el radio del elemento.
  */
 function getDisplacementMap({ height, width, radius, depth }) {
+    // El radio puede venir como un valor centinela grande (p. ej. 999) para
+    // lograr forma de píldora. Limitarlo a la mitad de la dimensión menor evita
+    // que los cálculos proporcionales de los gradientes (radius/width, radius/height)
+    // se rompan en elementos estrechos y produzcan un efecto glass más débil.
+    radius = Math.min(radius, Math.floor(Math.min(width, height) / 2));
+
     const svg = `<svg height="${height}" width="${width}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
         <style>
             .mix { mix-blend-mode: screen; }

@@ -748,35 +748,166 @@ canvas {
    Rejilla interactiva de tarjetas con micro-intercambio de color en hover.
 ---------------------------------------------------------------------------- */
 .services {
+    position: relative;
     padding: 7rem 0;
+    overflow: hidden;
 }
 
-/* .services-grid — rejilla responsiva de servicios */
+/* .services-bg — capa de fondo enmarcada con imagen (estilo banner) */
+.services-bg {
+    position: absolute;
+    inset: 1.5rem;
+    border-radius: 40px;
+    overflow: hidden;
+    z-index: 0;
+}
+.services-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* El contenido se eleva por encima del fondo */
+.services > .section-shell {
+    position: relative;
+    z-index: 1;
+}
+
+/* .services-head — layout de dos columnas: título a la izquierda, lead blur a la derecha */
+.services-head {
+    max-width: 100%;
+    margin: 0 0 3rem;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+}
+.services-title {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+/* "Nuestros" encima de "Servicios" */
+.services-title .hero-title-eyebrow {
+    flex-basis: auto;
+    margin-bottom: 0.2rem;
+}
+/* Tamaño mayor para "Servicios" igual que hero-title-accent */
+.services-title .hero-title-accent {
+    font-size: clamp(4rem, 9vw, 7.5rem);
+}
+
+/* .services-lead-box — contenedor blur al lado del título */
+.services-lead-box {
+    flex: 1;
+    max-width: 420px;
+    padding: 1.6rem 1.8rem;
+    border-radius: var(--radius-md);
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+}
+
+/* .services-lead — párrafo introductorio dentro del contenedor blur */
+.services-lead {
+    font-size: clamp(1rem, 1.4vw, 1.12rem);
+    color: rgba(255, 255, 255, 0.88);
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* .services-group — bloque que agrupa un set de servicios (planes / complementos) */
+.services-group {
+    margin-top: 4rem;
+}
+.services-group:first-of-type {
+    margin-top: 0;
+}
+
+/* .services-group-head — encabezado de cada grupo (limpio, sin línea) */
+.services-group-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    margin-bottom: 2rem;
+}
+.services-group-title {
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #fff;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+.services-group-sub {
+    max-width: 520px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1rem;
+    line-height: 1.55;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ----------------------------------------------------------------------------
+   Rejilla de planes — grid 2×2 con glassmorphism CSS puro.
+---------------------------------------------------------------------------- */
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* .services-grid — rejilla responsiva (usada por otros grupos) */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
-/* .service-card — tarjeta de servicio con glassmorphism */
+/* .service-card — tarjeta con glassmorphism CSS puro (backdrop-filter blur) */
 .service-card {
     position: relative;
-    padding: 2.5rem 2rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--glass-border);
+    border-radius: 24px;
     background: var(--glass-bg);
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
     overflow: hidden;
-    transition: var(--transition);
 }
 .service-card:hover {
-    transform: translateY(-8px);
-    background: var(--glass-bg-strong);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.38);
 }
 
-/* .service-icon — marcador de posición para el icono del servicio */
+/* .service-card-inner — contenedor del contenido de la tarjeta */
+.service-card-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 420px;
+    height: 100%;
+    padding: 2.2rem 2rem;
+    font-family: var(--font-base);
+    text-align: left;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* Mapeo de acento por tarjeta (data-accent) a una sola variable reutilizable */
+.service-card[data-accent="blue"]   { --card-accent: var(--accent-blue); }
+.service-card[data-accent="green"]  { --card-accent: var(--accent-green); }
+.service-card[data-accent="yellow"] { --card-accent: var(--accent-yellow); }
+.service-card[data-accent="red"]    { --card-accent: var(--accent-red); }
+
+/* .service-icon — contenedor del icono del servicio */
 .service-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 54px;
     height: 54px;
     border-radius: 14px;
@@ -785,40 +916,204 @@ canvas {
     border: 1px solid var(--glass-border);
     transition: var(--transition);
 }
+.service-icon .material-symbols-rounded {
+    font-size: 28px;
+    color: var(--card-accent, var(--color-text));
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 40;
+    transition: color 0.35s ease;
+}
 
 /* .service-title — nombre del servicio */
 .service-title {
     font-size: 1.4rem;
     margin-bottom: 0.7rem;
+    color: #fff;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
 }
 
 /* .service-text — descripción del servicio */
 .service-text {
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.98rem;
+    margin-bottom: 1.25rem;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* .service-tag — etiqueta de tiempo / fase del plan */
+.service-tag {
+    align-self: flex-start;
+    padding: 0.35rem 0.8rem;
+    margin-bottom: 1.25rem;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg-strong);
+    color: var(--color-text);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* .service-features — lista de "qué incluye" cada plan */
+.service-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
     margin-bottom: 1.5rem;
+}
+.service-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
+}
+.service-features .material-symbols-rounded {
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 1.15rem;
+    color: var(--card-accent, var(--color-text));
+    font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 20;
 }
 
 /* .service-link — enlace inferior tipo "Saber más" */
 .service-link {
+    margin-top: auto;
     font-weight: 600;
     font-size: 0.92rem;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
     transition: var(--transition);
 }
 
-/* Micro-intercambio de color por acento corporativo (data-accent) */
-.service-card[data-accent="blue"]:hover { border-color: var(--accent-blue); }
-.service-card[data-accent="blue"]:hover .service-icon { background: var(--accent-blue); border-color: var(--accent-blue); }
-.service-card[data-accent="blue"]:hover .service-link { color: var(--accent-blue); }
+/* Micro-intercambio de color por acento corporativo en hover */
+.service-card:hover {
+    border-color: var(--card-accent);
+    background: rgba(255, 255, 255, 0.09);
+}
+.service-card:hover .service-icon {
+    background: var(--card-accent);
+    border-color: var(--card-accent);
+}
+.service-card:hover .service-icon .material-symbols-rounded { color: var(--color-bg); }
+.service-card:hover .service-link { color: var(--card-accent); }
 
-.service-card[data-accent="green"]:hover { border-color: var(--accent-green); }
-.service-card[data-accent="green"]:hover .service-icon { background: var(--accent-green); border-color: var(--accent-green); }
-.service-card[data-accent="green"]:hover .service-link { color: var(--accent-green); }
+/* .service-card--featured — plan destacado (anillo de color sobre el cristal) */
+.service-card--featured {
+    box-shadow: 0 0 0 2px var(--card-accent), var(--shadow-soft);
+}
+.service-card--featured .service-icon {
+    background: var(--card-accent);
+    border-color: var(--card-accent);
+}
+.service-card--featured .service-icon .material-symbols-rounded { color: var(--color-bg); }
 
-.service-card[data-accent="yellow"]:hover { border-color: var(--accent-yellow); }
-.service-card[data-accent="yellow"]:hover .service-icon { background: var(--accent-yellow); border-color: var(--accent-yellow); }
-.service-card[data-accent="yellow"]:hover .service-link { color: var(--accent-yellow); }
+/* .service-badge — etiqueta "Más solicitado" del plan destacado */
+.service-badge {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    background: var(--card-accent);
+    color: var(--color-bg);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* .addon-grid — collage cuadrado de complementos con cajas de distintos tamaños */
+.addon-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0.75rem;
+    aspect-ratio: 1 / 1;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/*
+   Mapa del collage (4 cols × 4 filas = 16 celdas, 8 ítems sin solapamiento):
+   Col:  1    2    3    4
+   Row1: [1 ] [1 ] [2 ] [2 ]
+   Row2: [1 ] [1 ] [3 ] [4 ]
+   Row3: [5 ] [6 ] [6 ] [8 ]
+   Row4: [5 ] [7 ] [7 ] [8 ]
+*/
+.addon-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }   /* 2×2 — grande */
+.addon-item:nth-child(2) { grid-column: 3 / 5; grid-row: 1 / 2; }   /* 2×1 — ancho */
+.addon-item:nth-child(3) { grid-column: 3 / 4; grid-row: 2 / 3; }   /* 1×1 — pequeño */
+.addon-item:nth-child(4) { grid-column: 4 / 5; grid-row: 2 / 3; }   /* 1×1 — pequeño */
+.addon-item:nth-child(5) { grid-column: 1 / 2; grid-row: 3 / 5; }   /* 1×2 — alto */
+.addon-item:nth-child(6) { grid-column: 2 / 4; grid-row: 3 / 4; }   /* 2×1 — ancho */
+.addon-item:nth-child(7) { grid-column: 2 / 4; grid-row: 4 / 5; }   /* 2×1 — ancho */
+.addon-item:nth-child(8) { grid-column: 4 / 5; grid-row: 3 / 5; }   /* 1×2 — alto */
+
+
+/* .addon-item — celda del collage: icono + texto, flex-col en celdas grandes */
+.addon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    padding: 1.2rem 1.3rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    transition: var(--transition);
+    overflow: hidden;
+    min-height: 0;
+}
+.addon-item[data-accent="blue"]   { --card-accent: var(--accent-blue); }
+.addon-item[data-accent="green"]  { --card-accent: var(--accent-green); }
+.addon-item[data-accent="yellow"] { --card-accent: var(--accent-yellow); }
+.addon-item[data-accent="red"]    { --card-accent: var(--accent-red); }
+.addon-item:hover {
+    transform: translateY(-4px);
+    background: var(--glass-bg-strong);
+    border-color: var(--card-accent);
+}
+
+/* .addon-icon — caja del icono del complemento */
+.addon-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--glass-bg-strong);
+    border: 1px solid var(--glass-border);
+    transition: var(--transition);
+}
+.addon-icon .material-symbols-rounded {
+    font-size: 24px;
+    color: var(--card-accent, var(--color-text));
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    transition: color 0.35s ease;
+}
+.addon-item:hover .addon-icon {
+    background: var(--card-accent);
+    border-color: var(--card-accent);
+}
+.addon-item:hover .addon-icon .material-symbols-rounded { color: var(--color-bg); }
+
+/* .addon-title / .addon-text — contenido del complemento */
+.addon-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+.addon-text {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
 
 /* ----------------------------------------------------------------------------
    10. GLOBAL FOOTER
@@ -971,6 +1266,29 @@ canvas {
    11. RESPONSIVE
    Ajustes para tablet y móvil.
 ---------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    /* Plans: 2 columnas en tablet sigue bien, collage: limitar ancho */
+    .addon-grid {
+        max-width: 560px;
+    }
+}
+
+@media (max-width: 720px) {
+    /* Plans: 1 columna en pantallas medianas */
+    .plans-grid {
+        grid-template-columns: 1fr;
+    }
+    /* Services header en columna en móvil */
+    .services-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    .services-lead-box {
+        max-width: 100%;
+    }
+}
+
 @media (max-width: 860px) {
     /* Caja de navegación y acciones ocultas tras hamburguesa */
     .nav-glass,
@@ -993,6 +1311,21 @@ canvas {
     .services {
         padding: 4.5rem 0;
     }
+    /* Complementos en móvil: collage de 2x4 compacto */
+    .addon-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        aspect-ratio: unset;
+        max-width: 100%;
+    }
+    .addon-item:nth-child(1) { grid-column: 1 / 3; grid-row: auto; }
+    .addon-item:nth-child(2) { grid-column: 1 / 2; grid-row: auto; }
+    .addon-item:nth-child(3) { grid-column: 2 / 3; grid-row: auto; }
+    .addon-item:nth-child(4) { grid-column: 1 / 2; grid-row: auto; }
+    .addon-item:nth-child(5) { grid-column: 2 / 3; grid-row: auto; }
+    .addon-item:nth-child(6) { grid-column: 1 / 3; grid-row: auto; }
+    .addon-item:nth-child(7) { grid-column: 1 / 2; grid-row: auto; }
+    .addon-item:nth-child(8) { grid-column: 2 / 3; grid-row: auto; }
     .footer-form-wrap {
         padding: 1.8rem;
     }
