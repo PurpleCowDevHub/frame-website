@@ -192,45 +192,295 @@
              4. SERVICES SHOWCASE (Muestra de servicios)
         ============================================================= -->
         <section class="services" id="servicios">
+            <!-- Capa de fondo enmarcada (estilo banner) -->
+            <div class="services-bg" aria-hidden="true">
+                <img src="assets/img/windows-11-stock-official-light-3841x2400-5664.jpg" alt="" />
+            </div>
+
             <div class="section-shell">
-                <header class="section-head">
-                    <p class="section-eyebrow">Qué hacemos</p>
-                    <h2 class="section-title">Servicios</h2>
-                    <p class="section-lead">
-                        Soluciones digitales completas, pensadas para crecer contigo.
-                    </p>
+                <header class="section-head services-head">
+                    <h2 class="hero-title services-title">
+                        <span class="hero-title-eyebrow">Nuestros</span>
+                        <span class="hero-title-main">Servicios</span>
+                        <span class="hero-title-accent">
+                            <span class="shimmer-word dir-up">Digitales</span>
+                        </span>
+                    </h2>
+                    <glass-element
+                        class="services-lead-box"
+                        auto-size
+                        radius="16"
+                        depth="8"
+                        blur="3"
+                        strength="45"
+                        chromatic-aberration="2"
+                        background-color="rgba(255, 255, 255, 0.05)"
+                        style="--glass-padding: 1.6rem 1.8rem; flex: 1; max-width: 420px; display: block;">
+                        <p class="services-lead">
+                            Soluciones digitales para cada etapa de tu negocio: del primer lanzamiento al crecimiento continuo.
+                        </p>
+                    </glass-element>
                 </header>
 
-                <div class="services-grid">
-                    <article class="service-card" data-accent="blue">
-                        <div class="service-icon" aria-hidden="true"></div>
-                        <h3 class="service-title">Sitios Web</h3>
-                        <p class="service-text">
-                            Sitios corporativos rápidos, responsivos y optimizados para
-                            convertir visitantes en clientes.
-                        </p>
-                        <span class="service-link">Saber más</span>
-                    </article>
+                <!-- Grupo 1: Planes principales -->
+                <div class="services-group">
+                    <div class="services-group-head">
+                        <h3 class="services-group-title">Planes principales</h3>
+                        <p class="services-group-sub">Elige el punto de partida de tu proyecto.</p>
+                    </div>
 
-                    <article class="service-card" data-accent="green">
-                        <div class="service-icon" aria-hidden="true"></div>
-                        <h3 class="service-title">E-commerce</h3>
-                        <p class="service-text">
-                            Tiendas online seguras y escalables, con experiencias de
-                            compra impecables en cualquier dispositivo.
-                        </p>
-                        <span class="service-link">Saber más</span>
-                    </article>
+                    <div class="plans-grid">
+                        <!-- 1. Landing Pages -->
+                        <glass-element
+                            class="service-card"
+                            data-accent="yellow"
+                            auto-size
+                            radius="24"
+                            depth="8"
+                            blur="3"
+                            strength="40"
+                            chromatic-aberration="3"
+                            background-color="rgba(255, 255, 255, 0.05)"
+                            style="--glass-padding: 0; width: 100%;">
+                            <div class="service-card-inner">
+                                <div class="service-icon" aria-hidden="true">
+                                    <span class="material-symbols-rounded">rocket_launch</span>
+                                </div>
+                                <h4 class="service-title">Landing Pages</h4>
+                                <p class="service-text">
+                                    Una página directa al grano, pensada para que tus
+                                    visitantes se vuelvan clientes.
+                                </p>
+                                <span class="service-tag">1 – 2 semanas</span>
+                                <ul class="service-features">
+                                    <li><span class="material-symbols-rounded">check</span>Una sola página, enfocada en un objetivo</li>
+                                    <li><span class="material-symbols-rounded">check</span>Se ve bien en celular y computador</li>
+                                    <li><span class="material-symbols-rounded">check</span>Formulario para captar clientes</li>
+                                    <li><span class="material-symbols-rounded">check</span>Carga rápida</li>
+                                    <li><span class="material-symbols-rounded">check</span>Lista para aparecer en Google</li>
+                                </ul>
+                                <span class="service-link">Saber más</span>
+                            </div>
+                        </glass-element>
 
-                    <article class="service-card" data-accent="yellow">
-                        <div class="service-icon" aria-hidden="true"></div>
-                        <h3 class="service-title">Landing Pages</h3>
-                        <p class="service-text">
-                            Páginas de aterrizaje de alto impacto, diseñadas para
-                            maximizar conversiones en tus campañas.
+                        <!-- 2. Sitios Web (Featured) -->
+                        <glass-element
+                            class="service-card service-card--featured"
+                            data-accent="green"
+                            auto-size
+                            radius="24"
+                            depth="8"
+                            blur="3"
+                            strength="40"
+                            chromatic-aberration="3"
+                            background-color="rgba(255, 255, 255, 0.05)"
+                            style="--glass-padding: 0; width: 100%;">
+                            <div class="service-card-inner">
+                                <span class="service-badge">Más solicitado</span>
+                                <div class="service-icon" aria-hidden="true">
+                                    <span class="material-symbols-rounded">language</span>
+                                </div>
+                                <h4 class="service-title">Sitios Web</h4>
+                                <p class="service-text">
+                                    La presencia digital completa de tu marca, hecha
+                                    para atraer y convencer.
+                                </p>
+                                <span class="service-tag">3 – 5 semanas</span>
+                                <ul class="service-features">
+                                    <li><span class="material-symbols-rounded">check</span>Varias páginas hechas a tu medida</li>
+                                    <li><span class="material-symbols-rounded">check</span>Se ve bien en cualquier pantalla</li>
+                                    <li><span class="material-symbols-rounded">check</span>Tú mismo editas el contenido</li>
+                                    <li><span class="material-symbols-rounded">check</span>Sección de blog o noticias</li>
+                                    <li><span class="material-symbols-rounded">check</span>Preparada para aparecer en Google</li>
+                                    <li><span class="material-symbols-rounded">check</span>Rápida y fluida</li>
+                                </ul>
+                                <span class="service-link">Saber más</span>
+                            </div>
+                        </glass-element>
+
+                        <!-- 3. Tienda Online -->
+                        <glass-element
+                            class="service-card"
+                            data-accent="red"
+                            auto-size
+                            radius="24"
+                            depth="8"
+                            blur="3"
+                            strength="40"
+                            chromatic-aberration="3"
+                            background-color="rgba(255, 255, 255, 0.05)"
+                            style="--glass-padding: 0; width: 100%;">
+                            <div class="service-card-inner">
+                                <div class="service-icon" aria-hidden="true">
+                                    <span class="material-symbols-rounded">storefront</span>
+                                </div>
+                                <h4 class="service-title">Tienda Online</h4>
+                                <p class="service-text">
+                                    Tu tienda para vender por internet, fácil de
+                                    administrar desde un solo lugar.
+                                </p>
+                                <span class="service-tag">4 – 8 semanas</span>
+                                <ul class="service-features">
+                                    <li><span class="material-symbols-rounded">check</span>Vitrina con todos tus productos</li>
+                                    <li><span class="material-symbols-rounded">check</span>Carrito y pago seguro</li>
+                                    <li><span class="material-symbols-rounded">check</span>Recibe pagos por internet</li>
+                                    <li><span class="material-symbols-rounded">check</span>Administra productos y pedidos</li>
+                                    <li><span class="material-symbols-rounded">check</span>Control de tu inventario</li>
+                                    <li><span class="material-symbols-rounded">check</span>Cupones y reportes de ventas</li>
+                                </ul>
+                                <span class="service-link">Saber más</span>
+                            </div>
+                        </glass-element>
+
+                        <!-- 4. Aplicaciones Web -->
+                        <glass-element
+                            class="service-card"
+                            data-accent="blue"
+                            auto-size
+                            radius="24"
+                            depth="8"
+                            blur="3"
+                            strength="40"
+                            chromatic-aberration="3"
+                            background-color="rgba(255, 255, 255, 0.05)"
+                            style="--glass-padding: 0; width: 100%;">
+                            <div class="service-card-inner">
+                                <div class="service-icon" aria-hidden="true">
+                                    <span class="material-symbols-rounded">dashboard</span>
+                                </div>
+                                <h4 class="service-title">Aplicaciones Web</h4>
+                                <p class="service-text">
+                                    Plataformas a la medida de tu negocio para que
+                                    trabajes más fácil y rápido.
+                                </p>
+                                <span class="service-tag">A tu medida</span>
+                                <ul class="service-features">
+                                    <li><span class="material-symbols-rounded">check</span>Acceso seguro con usuario y contraseña</li>
+                                    <li><span class="material-symbols-rounded">check</span>Panel de control a tu medida</li>
+                                    <li><span class="material-symbols-rounded">check</span>Funciones pensadas para tu negocio</li>
+                                    <li><span class="material-symbols-rounded">check</span>Funciona en celular y computador</li>
+                                    <li><span class="material-symbols-rounded">check</span>Se conecta con las herramientas que ya usas</li>
+                                </ul>
+                                <span class="service-link">Saber más</span>
+                            </div>
+                        </glass-element>
+                    </div>
+                </div>
+
+                <!-- Grupo 2: Complementos -->
+                <div class="services-group">
+                    <div class="services-group-head">
+                        <h3 class="services-group-title">Complementos</h3>
+                        <p class="services-group-sub">
+                            Se cotizan por separado y se suman a cualquier plan.
                         </p>
-                        <span class="service-link">Saber más</span>
-                    </article>
+                    </div>
+
+                    <ul class="addon-grid">
+                        <li class="addon-item" data-accent="green">
+                            <span class="addon-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">trending_up</span>
+                            </span>
+                            <div class="addon-body">
+                                <h4 class="addon-title">Posicionamiento en Google</h4>
+                                <p class="addon-text">
+                                    Ajustes para que tu sitio aparezca cuando tus
+                                    clientes te buscan.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="addon-item" data-accent="blue">
+                            <span class="addon-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">view_in_ar</span>
+                            </span>
+                            <div class="addon-body">
+                                <h4 class="addon-title">Elementos 3D</h4>
+                                <p class="addon-text">
+                                    Objetos 3D que se mueven y hacen tu sitio
+                                    único y llamativo.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="addon-item" data-accent="yellow">
+                            <span class="addon-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">hub</span>
+                            </span>
+                            <div class="addon-body">
+                                <h4 class="addon-title">Integraciones</h4>
+                                <p class="addon-text">
+                                    Conectamos tu sitio con otras herramientas que
+                                    ya usas en tu día a día.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="addon-item" data-accent="red">
+                            <span class="addon-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">dns</span>
+                            </span>
+                            <div class="addon-body">
+                                <h4 class="addon-title">Publicación y Dominio</h4>
+                                <p class="addon-text">
+                                    Dejamos tu sitio en línea y con su propia
+                                    dirección web.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="addon-item" data-accent="blue">
+                            <span class="addon-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">build</span>
+                            </span>
+                            <div class="addon-body">
+                                <h4 class="addon-title">Mantenimiento</h4>
+                                <p class="addon-text">
+                                    Cuidamos y actualizamos tu sitio después de
+                                    la entrega.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="addon-item" data-accent="green">
+                            <span class="addon-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">edit_note</span>
+                            </span>
+                            <div class="addon-body">
+                                <h4 class="addon-title">Textos y Contenido</h4>
+                                <p class="addon-text">
+                                    Escribimos los textos y preparamos las imágenes
+                                    de tu sitio.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="addon-item" data-accent="yellow">
+                            <span class="addon-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">monitoring</span>
+                            </span>
+                            <div class="addon-body">
+                                <h4 class="addon-title">Estadísticas</h4>
+                                <p class="addon-text">
+                                    Medimos las visitas y los resultados de tu
+                                    sitio web.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="addon-item" data-accent="red">
+                            <span class="addon-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">translate</span>
+                            </span>
+                            <div class="addon-body">
+                                <h4 class="addon-title">Varios Idiomas</h4>
+                                <p class="addon-text">
+                                    Tu sitio en otros idiomas para llegar a más
+                                    personas.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
