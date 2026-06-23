@@ -42,4 +42,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // El carrusel fue reemplazado por una rejilla estática de tarjetas glass.
+
+    // --- Reveal al hacer scroll (encabezado de servicios) ---
+    const revealTargets = document.querySelectorAll(".services-head");
+
+    if (revealTargets.length > 0) {
+        if ("IntersectionObserver" in window) {
+            // Repite la animación cada vez que el encabezado entra o sale del viewport.
+            // El rootMargin inferior negativo retrasa el disparo hasta que está bien dentro de pantalla.
+            const revealObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        entry.target.classList.toggle(
+                            "is-visible",
+                            entry.isIntersecting
+                        );
+                    });
+                },
+                { threshold: 0, rootMargin: "0px 0px -35% 0px" }
+            );
+            revealTargets.forEach((el) => revealObserver.observe(el));
+        } else {
+            // Fallback: mostrar sin animación si no hay soporte
+            revealTargets.forEach((el) => el.classList.add("is-visible"));
+        }
+    }
 });
