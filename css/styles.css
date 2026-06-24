@@ -634,7 +634,7 @@ canvas {
 .shimmer-word {
     display: inline-block;
     padding: 0 0.12em;
-    -webkit-background-clip: text;
+    -webkit-background-clip: text;  
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
@@ -653,6 +653,13 @@ canvas {
 /* Vertical con leve rotación (blanco abajo → azul arriba) */
 .shimmer-word.dir-flat {
     background-image: linear-gradient(5deg, #ffffff 0%, var(--accent-blue) 100%);
+}
+
+/* Animación de brillo para el degradado de texto */
+@keyframes shimmer-sweep {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* .hero-subtitle — subtítulo descriptivo */
@@ -816,6 +823,11 @@ canvas {
     font-size: 5.5rem;
     margin-top: 0;
 }
+/* Efecto de movimiento/brillo en la palabra "Servicios" */
+.services-title .shimmer-word {
+    background-size: 200% 200%;
+    animation: shimmer-sweep 4s ease-in-out infinite;
+}
 
 /* .services-lead-box — caja de lead de servicios como glass element */
 glass-element.services-lead-box {
@@ -856,10 +868,16 @@ glass-element.services-lead-box {
     color: var(--color-text);
     text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
 }
+/* 'Complementos' con el mismo estilo script/degradado que 'Servicios' */
+.services-group-title .hero-title-accent {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    margin-top: 0;
+    text-shadow: none;
+}
 .services-group-sub {
     max-width: 520px;
     color: var(--color-text);
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     line-height: 1.6;
 }
 
@@ -869,6 +887,7 @@ glass-element.services-lead-box {
 .plans-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    align-items: stretch;
     gap: 1.5rem;
 }
 
@@ -898,8 +917,8 @@ glass-element.services-lead-box {
 /* .service-card-inner — contenedor del contenido de la tarjeta */
 .service-card-inner {
     position: relative;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto auto auto auto 1fr;
     width: 100%;
     height: 100%;
     padding: 2.2rem 1.8rem;
@@ -965,6 +984,7 @@ glass-element.services-lead-box {
 /* .service-tag — etiqueta de tiempo / fase del plan */
 .service-tag {
     align-self: flex-start;
+    justify-self: start;
     padding: 0.3rem 0.75rem;
     margin-bottom: 1.25rem;
     border-radius: 999px;
@@ -981,7 +1001,6 @@ glass-element.services-lead-box {
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
-    margin-top: auto;
     padding-top: 1.5rem;
     border-top: 1px solid var(--glass-border);
 }
