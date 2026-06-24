@@ -13,9 +13,6 @@
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
 </head>
 <body>
-    <!-- ============================================================
-         1. GLOBAL HEADER (Navegación fija)
-    ============================================================= -->
     <header class="site-header" id="siteHeader">
         <div class="header-inner">
             <a href="#hero" class="brand" aria-label="frame — inicio">
@@ -43,7 +40,6 @@
                 <span class="brand-name">frame</span>
             </a>
 
-            <!-- Barra de navegación central con liquid glass -->
             <glass-element
                 class="nav-glass"
                 auto-size
@@ -63,9 +59,7 @@
                 </nav>
             </glass-element>
 
-            <!-- Botones de acción derechos: tema (izq) + login (der) -->
             <div class="header-actions">
-                <!-- Botón tema claro/oscuro -->
                 <glass-element
                     class="action-glass theme-glass"
                     auto-size
@@ -86,7 +80,6 @@
                     </div>
                 </glass-element>
 
-                <!-- Botón login -->
                 <glass-element
                     class="action-glass"
                     auto-size
@@ -111,16 +104,11 @@
     </header>
 
     <main>
-        <!-- ============================================================
-             2. HERO SECTION (Banner de entrada — 100vh)
-        ============================================================= -->
         <section class="hero" id="hero">
-            <!-- Marcador de posición para el lienzo de renderizado 3D -->
             <div class="hero-canvas" id="hero-canvas-3d" aria-hidden="true">
                 <img src="assets/img/windows-11-abstracto-claro_3840x2160_xtrafondos.com.jpg" alt="" />
             </div>
 
-            <!-- Capa de contenido superpuesta (eje Z) -->
             <div class="hero-content">
                 <h1 class="hero-title">
                     <span class="hero-title-eyebrow">Servicios de</span>
@@ -145,9 +133,6 @@
             </div>
         </section>
 
-        <!-- ============================================================
-             3. VALUE PROPOSITION (Propuesta de valor)
-        ============================================================= -->
         <section class="value" id="valor">
             <div class="section-shell">
                 <header class="section-head">
@@ -188,11 +173,7 @@
             </div>
         </section>
 
-        <!-- ============================================================
-             4. SERVICES SHOWCASE (Muestra de servicios)
-        ============================================================= -->
         <section class="services" id="servicios">
-            <!-- Capa de fondo enmarcada (estilo banner) -->
             <div class="services-bg" aria-hidden="true">
                 <img src="assets/img/windows-11-abstracto-claro_3840x2160_xtrafondos.com.jpg" alt="" />
             </div>
@@ -207,10 +188,8 @@
                     </h2>
                 </header>
 
-                <!-- Grupo 1: Planes principales -->
                 <div class="services-group">
                     <div class="plans-grid">
-                        <!-- 1. Landing Pages -->
                         <article class="service-card" data-accent="yellow">
                             <div class="service-card-inner">
                                 <div class="service-icon" aria-hidden="true">
@@ -234,7 +213,6 @@
                             </div>
                         </article>
 
-                        <!-- 2. Sitios Web (Featured) -->
                         <article class="service-card service-card--featured" data-accent="green">
                             <div class="service-card-inner">
                                 <span class="service-badge">Más solicitado</span>
@@ -260,7 +238,6 @@
                             </div>
                         </article>
 
-                        <!-- 3. Tienda Online -->
                         <article class="service-card" data-accent="red">
                             <div class="service-card-inner">
                                 <div class="service-icon" aria-hidden="true">
@@ -284,7 +261,6 @@
                             </div>
                         </article>
 
-                        <!-- 4. Aplicaciones Web -->
                         <article class="service-card" data-accent="blue">
                             <div class="service-card-inner">
                                 <div class="service-icon" aria-hidden="true">
@@ -310,7 +286,6 @@
                     </div>
                 </div>
 
-                <!-- Grupo 2: Complementos -->
                 <div class="services-group">
                     <div class="services-group-head">
                         <h3 class="services-group-title">
@@ -380,15 +355,7 @@
             </div>
         </section>
 
-        <!-- ============================================================
-             5. CONTACT SECTION (Sección de contacto premium)
-        ============================================================= -->
         <section class="contact" id="contacto">
-            <!-- Capa de fondo enmarcada (estilo banner/servicios) -->
-            <div class="contact-bg" aria-hidden="true">
-                <img src="assets/img/windows-11-abstracto-claro_3840x2160_xtrafondos.com.jpg" alt="" />
-            </div>
-
             <div class="section-shell">
                 <header class="section-head contact-head">
                     <h2 class="hero-title contact-title">
@@ -397,35 +364,10 @@
                             <span class="shimmer-word dir-flat">Proyecto</span>
                         </span>
                     </h2>
-                    <glass-element
-                        class="contact-lead-box"
-                        auto-size
-                        radius="24"
-                        depth="10"
-                        blur="2"
-                        strength="50"
-                        chromatic-aberration="3"
-                        background-color="rgba(255, 255, 255, 0.06)"
-                        style="--glass-padding: 1.6rem 1.8rem;">
-                        <p class="contact-lead">
-                            Cuéntanos qué necesitas y te respondemos en menos de
-                            24&nbsp;horas con una propuesta a tu medida.
-                        </p>
-                    </glass-element>
                 </header>
 
                 <div class="contact-grid">
-                    <!-- Panel de formulario en liquid glass -->
-                    <glass-element
-                        class="contact-form-glass"
-                        auto-size
-                        radius="28"
-                        depth="10"
-                        blur="2"
-                        strength="50"
-                        chromatic-aberration="3"
-                        background-color="rgba(255, 255, 255, 0.06)"
-                        style="--glass-padding: 2.4rem;">
+                    <div class="contact-form-wrap">
                         <form class="contact-form" id="contactForm" novalidate>
                             <div class="field-row">
                                 <div class="field">
@@ -445,21 +387,23 @@
                                 <label for="message">Mensaje</label>
                                 <textarea id="message" name="message" rows="4" placeholder="Cuéntanos qué necesitas"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block">Enviar mensaje</button>
+                            <button type="submit" class="contact-submit">
+                                <span>Enviar mensaje</span>
+                                <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+                            </button>
                         </form>
-                    </glass-element>
+                    </div>
 
-                    <!-- Columna de datos de contacto con tarjetas acentuadas -->
                     <aside class="contact-aside">
-                        <a href="https://wa.me/573000000000" class="contact-card" data-accent="green" target="_blank" rel="noopener">
-                            <span class="contact-card-icon" aria-hidden="true">
+                        <a href="https://wa.me/573000000000" class="contact-wa" target="_blank" rel="noopener">
+                            <span class="contact-wa-icon" aria-hidden="true">
                                 <span class="material-symbols-rounded">chat</span>
                             </span>
-                            <span class="contact-card-body">
-                                <span class="contact-card-label">WhatsApp</span>
-                                <span class="contact-card-value">+57 300 000 0000</span>
+                            <span class="contact-wa-body">
+                                <span class="contact-wa-label">La forma más rápida</span>
+                                <span class="contact-wa-title">Escríbenos por WhatsApp</span>
                             </span>
-                            <span class="material-symbols-rounded contact-card-arrow">arrow_outward</span>
+                            <span class="material-symbols-rounded contact-wa-arrow" aria-hidden="true">arrow_outward</span>
                         </a>
 
                         <a href="mailto:contacto@frame.com" class="contact-card" data-accent="blue">
@@ -470,43 +414,18 @@
                                 <span class="contact-card-label">Correo</span>
                                 <span class="contact-card-value">contacto@frame.com</span>
                             </span>
-                            <span class="material-symbols-rounded contact-card-arrow">arrow_outward</span>
+                            <span class="material-symbols-rounded contact-card-arrow" aria-hidden="true">arrow_outward</span>
                         </a>
-
-                        <a href="tel:+573000000000" class="contact-card" data-accent="yellow">
-                            <span class="contact-card-icon" aria-hidden="true">
-                                <span class="material-symbols-rounded">call</span>
-                            </span>
-                            <span class="contact-card-body">
-                                <span class="contact-card-label">Teléfono</span>
-                                <span class="contact-card-value">+57 300 000 0000</span>
-                            </span>
-                            <span class="material-symbols-rounded contact-card-arrow">arrow_outward</span>
-                        </a>
-
-                        <div class="contact-social" data-accent="red">
-                            <span class="contact-card-label">Síguenos</span>
-                            <ul class="social-links" aria-label="Redes sociales">
-                                <li><a href="#" class="social-link" aria-label="Instagram">IG</a></li>
-                                <li><a href="#" class="social-link" aria-label="LinkedIn">IN</a></li>
-                                <li><a href="#" class="social-link" aria-label="X (Twitter)">X</a></li>
-                                <li><a href="#" class="social-link" aria-label="GitHub">GH</a></li>
-                            </ul>
-                        </div>
                     </aside>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ============================================================
-         6. GLOBAL FOOTER (Pie de página)
-    ============================================================= -->
     <footer class="site-footer">
         <div class="section-shell footer-top">
             <div class="footer-brand-col">
                 <a href="#hero" class="brand brand-footer">
-                    <span class="brand-mark"></span>
                     <span class="brand-name">frame</span>
                 </a>
                 <p class="footer-tagline">
@@ -521,16 +440,11 @@
             </nav>
         </div>
 
-        <!-- Fila de cierre legal -->
         <div class="footer-legal">
-            <p>&copy; <span id="year">2026</span> frame. Todos los derechos reservados.</p>
+            <p>&copy; 2026 frame. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- ============================================================
-         LIQUID GLASS — Web Component (efecto de cristal líquido)
-         Debe cargarse displacement-utils.js antes que glass-element.js
-    ============================================================= -->
     <script src="js/vendor/liquid-glass/displacement-utils.js"></script>
     <script src="js/vendor/liquid-glass/glass-element.js"></script>
     <script src="js/main.js"></script>
