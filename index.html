@@ -379,39 +379,132 @@
                 </div>
             </div>
         </section>
+
+        <!-- ============================================================
+             5. CONTACT SECTION (Sección de contacto premium)
+        ============================================================= -->
+        <section class="contact" id="contacto">
+            <!-- Capa de fondo enmarcada (estilo banner/servicios) -->
+            <div class="contact-bg" aria-hidden="true">
+                <img src="assets/img/windows-11-abstracto-claro_3840x2160_xtrafondos.com.jpg" alt="" />
+            </div>
+
+            <div class="section-shell">
+                <header class="section-head contact-head">
+                    <h2 class="hero-title contact-title">
+                        <span class="hero-title-eyebrow">Hablemos de tu</span>
+                        <span class="hero-title-accent">
+                            <span class="shimmer-word dir-flat">Proyecto</span>
+                        </span>
+                    </h2>
+                    <glass-element
+                        class="contact-lead-box"
+                        auto-size
+                        radius="24"
+                        depth="10"
+                        blur="2"
+                        strength="50"
+                        chromatic-aberration="3"
+                        background-color="rgba(255, 255, 255, 0.06)"
+                        style="--glass-padding: 1.6rem 1.8rem;">
+                        <p class="contact-lead">
+                            Cuéntanos qué necesitas y te respondemos en menos de
+                            24&nbsp;horas con una propuesta a tu medida.
+                        </p>
+                    </glass-element>
+                </header>
+
+                <div class="contact-grid">
+                    <!-- Panel de formulario en liquid glass -->
+                    <glass-element
+                        class="contact-form-glass"
+                        auto-size
+                        radius="28"
+                        depth="10"
+                        blur="2"
+                        strength="50"
+                        chromatic-aberration="3"
+                        background-color="rgba(255, 255, 255, 0.06)"
+                        style="--glass-padding: 2.4rem;">
+                        <form class="contact-form" id="contactForm" novalidate>
+                            <div class="field-row">
+                                <div class="field">
+                                    <label for="name">Nombre</label>
+                                    <input type="text" id="name" name="name" placeholder="Tu nombre" autocomplete="name" />
+                                </div>
+                                <div class="field">
+                                    <label for="email">Correo</label>
+                                    <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="phone">Teléfono</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+57 300 000 0000" autocomplete="tel" />
+                            </div>
+                            <div class="field">
+                                <label for="message">Mensaje</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Cuéntanos qué necesitas"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Enviar mensaje</button>
+                        </form>
+                    </glass-element>
+
+                    <!-- Columna de datos de contacto con tarjetas acentuadas -->
+                    <aside class="contact-aside">
+                        <a href="https://wa.me/573000000000" class="contact-card" data-accent="green" target="_blank" rel="noopener">
+                            <span class="contact-card-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">chat</span>
+                            </span>
+                            <span class="contact-card-body">
+                                <span class="contact-card-label">WhatsApp</span>
+                                <span class="contact-card-value">+57 300 000 0000</span>
+                            </span>
+                            <span class="material-symbols-rounded contact-card-arrow">arrow_outward</span>
+                        </a>
+
+                        <a href="mailto:contacto@frame.com" class="contact-card" data-accent="blue">
+                            <span class="contact-card-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">mail</span>
+                            </span>
+                            <span class="contact-card-body">
+                                <span class="contact-card-label">Correo</span>
+                                <span class="contact-card-value">contacto@frame.com</span>
+                            </span>
+                            <span class="material-symbols-rounded contact-card-arrow">arrow_outward</span>
+                        </a>
+
+                        <a href="tel:+573000000000" class="contact-card" data-accent="yellow">
+                            <span class="contact-card-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">call</span>
+                            </span>
+                            <span class="contact-card-body">
+                                <span class="contact-card-label">Teléfono</span>
+                                <span class="contact-card-value">+57 300 000 0000</span>
+                            </span>
+                            <span class="material-symbols-rounded contact-card-arrow">arrow_outward</span>
+                        </a>
+
+                        <div class="contact-social" data-accent="red">
+                            <span class="contact-card-label">Síguenos</span>
+                            <ul class="social-links" aria-label="Redes sociales">
+                                <li><a href="#" class="social-link" aria-label="Instagram">IG</a></li>
+                                <li><a href="#" class="social-link" aria-label="LinkedIn">IN</a></li>
+                                <li><a href="#" class="social-link" aria-label="X (Twitter)">X</a></li>
+                                <li><a href="#" class="social-link" aria-label="GitHub">GH</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- ============================================================
-         5. GLOBAL FOOTER (Pie de página)
+         6. GLOBAL FOOTER (Pie de página)
     ============================================================= -->
-    <footer class="site-footer" id="contacto">
-        <div class="section-shell footer-grid">
-            <!-- Formulario de contacto -->
-            <div class="footer-form-wrap glass-panel">
-                <h2 class="footer-title">Hablemos de tu proyecto</h2>
-                <form class="contact-form" id="contactForm" novalidate>
-                    <div class="field">
-                        <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" placeholder="Tu nombre" autocomplete="name" />
-                    </div>
-                    <div class="field">
-                        <label for="email">Correo</label>
-                        <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" />
-                    </div>
-                    <div class="field">
-                        <label for="phone">Teléfono</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+57 300 000 0000" autocomplete="tel" />
-                    </div>
-                    <div class="field">
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Cuéntanos qué necesitas"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">Enviar mensaje</button>
-                </form>
-            </div>
-
-            <!-- Información de contacto + redes -->
-            <div class="footer-info">
+    <footer class="site-footer">
+        <div class="section-shell footer-top">
+            <div class="footer-brand-col">
                 <a href="#hero" class="brand brand-footer">
                     <span class="brand-mark"></span>
                     <span class="brand-name">frame</span>
@@ -419,25 +512,13 @@
                 <p class="footer-tagline">
                     Desarrollo web profesional para marcas que apuntan alto.
                 </p>
-
-                <ul class="contact-details">
-                    <li>
-                        <span class="contact-label">Teléfono</span>
-                        <a href="tel:+573000000000" class="contact-value">+57 300 000 0000</a>
-                    </li>
-                    <li>
-                        <span class="contact-label">Correo</span>
-                        <a href="mailto:contacto@frame.com" class="contact-value">contacto@frame.com</a>
-                    </li>
-                </ul>
-
-                <ul class="social-links" aria-label="Redes sociales">
-                    <li><a href="#" class="social-link" aria-label="Instagram">IG</a></li>
-                    <li><a href="#" class="social-link" aria-label="LinkedIn">IN</a></li>
-                    <li><a href="#" class="social-link" aria-label="X (Twitter)">X</a></li>
-                    <li><a href="#" class="social-link" aria-label="GitHub">GH</a></li>
-                </ul>
             </div>
+            <nav class="footer-nav" aria-label="Enlaces del pie">
+                <a href="#hero">Home</a>
+                <a href="#valor">Nosotros</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
         </div>
 
         <!-- Fila de cierre legal -->
