@@ -118,17 +118,7 @@
                         <span class="shimmer-word dir-flat">medida</span>
                     </span>
                 </h1>
-                <glass-element
-                    auto-size
-                    radius="999"
-                    depth="10"
-                    blur="2"
-                    strength="50"
-                    chromatic-aberration="3"
-                    background-color="rgba(255, 255, 255, 0.06)"
-                    style="--glass-padding: 6px;">
-                    <a href="#portafolio" class="hero-portfolio-btn">Ver portafolio</a>
-                </glass-element>
+                <a href="#portafolio" class="hero-portfolio-btn">Ver portafolio</a>
             </div>
         </section>
 
@@ -187,176 +177,134 @@
                     </h2>
                 </header>
 
-                <div class="services-group">
-                    <div class="plans-grid">
-                        <article class="service-card" data-accent="yellow">
-                            <div class="service-card-inner">
-                                <div class="service-icon" aria-hidden="true">
-                                    <span class="material-symbols-rounded">rocket_launch</span>
-                                </div>
-                                <h4 class="service-title">Landing Pages</h4>
-                                <span class="service-tag">1 – 2 semanas</span>
-                                <p class="service-text">
-                                    Página de conversión optimizada con arquitectura
-                                    de componentes modulares y rendimiento técnico
-                                    medible mediante Core Web Vitals.
-                                </p>
-                                <ul class="service-features">
-                                    <li><span class="material-symbols-rounded">check</span>Una sola página, enfocada en un objetivo</li>
-                                    <li><span class="material-symbols-rounded">check</span>Se ve bien en celular y computador</li>
-                                    <li><span class="material-symbols-rounded">check</span>Formulario para captar clientes</li>
-                                    <li><span class="material-symbols-rounded">check</span>Integración con WhatsApp</li>
-                                    <li><span class="material-symbols-rounded">check</span>Mapa de Google Maps integrado</li>
-                                    <li><span class="material-symbols-rounded">check</span>Carga rápida y lista para Google</li>
-                                </ul>
-                            </div>
-                        </article>
+                <div class="sv-layout">
 
-                        <article class="service-card service-card--featured" data-accent="green">
-                            <div class="service-card-inner">
-                                <span class="service-badge">Más solicitado</span>
-                                <div class="service-icon" aria-hidden="true">
-                                    <span class="material-symbols-rounded">language</span>
-                                </div>
-                                <h4 class="service-title">Sitios Web</h4>
-                                <span class="service-tag">3 – 5 semanas</span>
-                                <p class="service-text">
-                                    Plataforma corporativa escalable con CMS integrado,
-                                    arquitectura de información jerárquica y optimización
-                                    SEO técnica avanzada.
-                                </p>
-                                <ul class="service-features">
-                                    <li><span class="material-symbols-rounded">check</span>Varias páginas hechas a tu medida</li>
-                                    <li><span class="material-symbols-rounded">check</span>Se ve bien en cualquier pantalla</li>
-                                    <li><span class="material-symbols-rounded">check</span>Tú mismo editas el contenido</li>
-                                    <li><span class="material-symbols-rounded">check</span>Sección de blog o noticias</li>
-                                    <li><span class="material-symbols-rounded">check</span>Correos de publicidad y newsletters</li>
-                                    <li><span class="material-symbols-rounded">check</span>Integración con WhatsApp y redes</li>
-                                    <li><span class="material-symbols-rounded">check</span>Preparada para Google y carga rápida</li>
-                                </ul>
+                    <!-- Columna 1 y 2: Servicios en 2×2 -->
+                    <div class="sv-plans">
+                        <button class="sv-card" data-accent="yellow" data-modal="landing" type="button">
+                            <div class="sv-card-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">rocket_launch</span>
                             </div>
-                        </article>
-
-                        <article class="service-card" data-accent="red">
-                            <div class="service-card-inner">
-                                <div class="service-icon" aria-hidden="true">
-                                    <span class="material-symbols-rounded">storefront</span>
-                                </div>
-                                <h4 class="service-title">Tienda Online</h4>
-                                <span class="service-tag">4 – 8 semanas</span>
-                                <p class="service-text">
-                                    E-commerce con pasarelas de pago seguras, gestión
-                                    de inventario en tiempo real y dashboard analítico
-                                    para métricas de conversión.
-                                </p>
-                                <ul class="service-features">
-                                    <li><span class="material-symbols-rounded">check</span>Catálogo de productos con buscador</li>
-                                    <li><span class="material-symbols-rounded">check</span>Carrito de compras y pago seguro</li>
-                                    <li><span class="material-symbols-rounded">check</span>Registro e inicio de sesión de usuarios</li>
-                                    <li><span class="material-symbols-rounded">check</span>Panel de administración completo</li>
-                                    <li><span class="material-symbols-rounded">check</span>Gestión de productos, pedidos e inventario</li>
-                                    <li><span class="material-symbols-rounded">check</span>Cupones de descuento y reportes de ventas</li>
-                                </ul>
+                            <div class="sv-card-body">
+                                <span class="sv-card-tag">1 – 2 semanas</span>
+                                <h4 class="sv-card-title">Landing Pages</h4>
+                                <p class="sv-card-desc">Página de conversión de alto impacto, enfocada en un solo objetivo.</p>
                             </div>
-                        </article>
-
-                        <article class="service-card" data-accent="blue">
-                            <div class="service-card-inner">
-                                <div class="service-icon" aria-hidden="true">
-                                    <span class="material-symbols-rounded">dashboard</span>
-                                </div>
-                                <h4 class="service-title">Aplicaciones Web</h4>
-                                <span class="service-tag">A tu medida</span>
-                                <p class="service-text">
-                                    Software empresarial a medida con arquitectura
-                                    microservicios, autenticación OAuth 2.0 y APIs
-                                    RESTful para integración escalable.
-                                </p>
-                                <ul class="service-features">
-                                    <li><span class="material-symbols-rounded">check</span>Panel de administración profesional</li>
-                                    <li><span class="material-symbols-rounded">check</span>100% a la medida de tu empresa</li>
-                                    <li><span class="material-symbols-rounded">check</span>Roles de usuario y acceso seguro</li>
-                                    <li><span class="material-symbols-rounded">check</span>Reportes, métricas y dashboards</li>
-                                    <li><span class="material-symbols-rounded">check</span>Funciona en celular y computador</li>
-                                    <li><span class="material-symbols-rounded">check</span>Integraciones con tus herramientas actuales</li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="services-group">
-                    <div class="services-group-head">
-                        <h3 class="services-group-title">
-                            <span class="hero-title-accent">
-                                <span class="shimmer-word dir-flat">Complementos</span>
+                            <span class="sv-card-cta" aria-hidden="true">
+                                <span class="material-symbols-rounded">arrow_forward</span>
                             </span>
-                        </h3>
-                        <p class="services-group-sub">
-                            Se cotizan por separado y se suman a cualquier plan.
-                        </p>
+                        </button>
+
+                        <button class="sv-card" data-accent="green" data-modal="sitios" type="button">
+                            <div class="sv-card-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">language</span>
+                            </div>
+                            <div class="sv-card-body">
+                                <span class="sv-card-tag">3 – 5 semanas</span>
+                                <h4 class="sv-card-title">Sitios Web</h4>
+                                <p class="sv-card-desc">Plataforma corporativa escalable con CMS y SEO técnico avanzado.</p>
+                            </div>
+                            <span class="sv-card-cta" aria-hidden="true">
+                                <span class="material-symbols-rounded">arrow_forward</span>
+                            </span>
+                        </button>
+
+                        <button class="sv-card" data-accent="red" data-modal="tienda" type="button">
+                            <div class="sv-card-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">storefront</span>
+                            </div>
+                            <div class="sv-card-body">
+                                <span class="sv-card-tag">4 – 8 semanas</span>
+                                <h4 class="sv-card-title">Tienda Online</h4>
+                                <p class="sv-card-desc">E-commerce con pasarelas de pago, inventario y panel de administración.</p>
+                            </div>
+                            <span class="sv-card-cta" aria-hidden="true">
+                                <span class="material-symbols-rounded">arrow_forward</span>
+                            </span>
+                        </button>
+
+                        <button class="sv-card" data-accent="blue" data-modal="apps" type="button">
+                            <div class="sv-card-icon" aria-hidden="true">
+                                <span class="material-symbols-rounded">dashboard</span>
+                            </div>
+                            <div class="sv-card-body">
+                                <span class="sv-card-tag">A tu medida</span>
+                                <h4 class="sv-card-title">Aplicaciones Web</h4>
+                                <p class="sv-card-desc">Software empresarial a medida con autenticación, roles y dashboards.</p>
+                            </div>
+                            <span class="sv-card-cta" aria-hidden="true">
+                                <span class="material-symbols-rounded">arrow_forward</span>
+                            </span>
+                        </button>
                     </div>
 
-                    <ul class="addon-grid">
-                        <li class="addon-item" data-accent="green" id="addon-seo">
-                            <span class="addon-icon" aria-hidden="true">
+                    <!-- Columna 3: Complementos en 4 filas -->
+                    <div class="sv-addons">
+                        <p class="sv-addons-label">Complementos</p>
+                        <button class="sv-addon" data-accent="green" data-modal="seo" id="addon-seo" type="button">
+                            <span class="sv-addon-icon" aria-hidden="true">
                                 <span class="material-symbols-rounded">trending_up</span>
                             </span>
-                            <div class="addon-body">
-                                <h4 class="addon-title">Posicionamiento en Google</h4>
-                                <p class="addon-text">
-                                    Ajustes para que tu sitio aparezca cuando tus
-                                    clientes te buscan.
-                                </p>
+                            <div class="sv-addon-body">
+                                <h4 class="sv-addon-title">Posicionamiento en Google</h4>
+                                <p class="sv-addon-desc">Aparece cuando tus clientes te buscan.</p>
                             </div>
-                        </li>
+                            <span class="material-symbols-rounded sv-addon-arrow" aria-hidden="true">chevron_right</span>
+                        </button>
 
-                        <li class="addon-item" data-accent="blue" id="addon-3d">
-                            <span class="addon-icon" aria-hidden="true">
+                        <button class="sv-addon" data-accent="blue" data-modal="3d" id="addon-3d" type="button">
+                            <span class="sv-addon-icon" aria-hidden="true">
                                 <span class="material-symbols-rounded">view_in_ar</span>
                             </span>
-                            <div class="addon-body">
-                                <h4 class="addon-title">Elementos 3D</h4>
-                                <p class="addon-text">
-                                    Objetos 3D que se mueven y hacen tu sitio
-                                    único y llamativo.
-                                </p>
+                            <div class="sv-addon-body">
+                                <h4 class="sv-addon-title">Elementos 3D</h4>
+                                <p class="sv-addon-desc">Objetos 3D que hacen tu sitio único.</p>
                             </div>
-                        </li>
+                            <span class="material-symbols-rounded sv-addon-arrow" aria-hidden="true">chevron_right</span>
+                        </button>
 
-                        <li class="addon-item" data-accent="yellow" id="addon-integraciones">
-                            <span class="addon-icon" aria-hidden="true">
+                        <button class="sv-addon" data-accent="yellow" data-modal="integraciones" id="addon-integraciones" type="button">
+                            <span class="sv-addon-icon" aria-hidden="true">
                                 <span class="material-symbols-rounded">hub</span>
                             </span>
-                            <div class="addon-body">
-                                <h4 class="addon-title">Integraciones</h4>
-                                <p class="addon-text">
-                                    Conectamos tu sitio con otras herramientas que
-                                    ya usas en tu día a día.
-                                </p>
+                            <div class="sv-addon-body">
+                                <h4 class="sv-addon-title">Integraciones</h4>
+                                <p class="sv-addon-desc">Conectamos tu sitio con tus herramientas.</p>
                             </div>
-                        </li>
+                            <span class="material-symbols-rounded sv-addon-arrow" aria-hidden="true">chevron_right</span>
+                        </button>
 
-                        <li class="addon-item" data-accent="red" id="addon-mantenimiento">
-                            <span class="addon-icon" aria-hidden="true">
+                        <button class="sv-addon" data-accent="red" data-modal="mantenimiento" id="addon-mantenimiento" type="button">
+                            <span class="sv-addon-icon" aria-hidden="true">
                                 <span class="material-symbols-rounded">build</span>
                             </span>
-                            <div class="addon-body">
-                                <h4 class="addon-title">Mantenimiento</h4>
-                                <p class="addon-text">
-                                    Cuidamos y actualizamos tu sitio después de
-                                    la entrega.
-                                </p>
+                            <div class="sv-addon-body">
+                                <h4 class="sv-addon-title">Mantenimiento</h4>
+                                <p class="sv-addon-desc">Cuidamos tu sitio después de la entrega.</p>
                             </div>
-                        </li>
-                    </ul>
+                            <span class="material-symbols-rounded sv-addon-arrow" aria-hidden="true">chevron_right</span>
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </section>
 
+        <!-- ===== MODAL DE SERVICIOS Y COMPLEMENTOS ===== -->
+        <div class="sv-modal-overlay" id="svModalOverlay" role="dialog" aria-modal="true" aria-labelledby="svModalTitle" hidden>
+            <div class="sv-modal">
+                <button class="sv-modal-close" id="svModalClose" type="button" aria-label="Cerrar">
+                    <span class="material-symbols-rounded">close</span>
+                </button>
+                <div class="sv-modal-content" id="svModalContent"></div>
+            </div>
+        </div>
+
         <section class="contact" id="contacto">
             <div class="section-shell">
-                <header class="section-head contact-head">
+
+                <!-- Encabezado igual al patrón de servicios -->
+                <header class="contact-head">
                     <h2 class="hero-title contact-title">
                         <span class="hero-title-eyebrow">Hablemos de tu</span>
                         <span class="hero-title-accent">
@@ -365,42 +313,135 @@
                     </h2>
                 </header>
 
-                <div class="contact-grid">
-                    <div class="contact-form-wrap">
-                        <form class="contact-form" id="contactForm" novalidate>
-                            <div class="field-row">
-                                <div class="field">
-                                    <label for="name">Nombre</label>
-                                    <input type="text" id="name" name="name" placeholder="Tu nombre" autocomplete="name" />
+                <!-- Grid principal: form (izq) + sidebar (der) -->
+                <div class="ct-layout">
+
+                    <!-- Columna principal: progress + form card -->
+                    <div class="ct-main">
+                        <!-- Progress -->
+                        <div class="cst-progress" aria-label="Progreso del formulario">
+                            <div class="cst-steps-track">
+                                <span class="cst-step-label is-active" data-step="1">
+                                    <span class="cst-step-dot"></span>
+                                    <span class="cst-step-text">Tus datos</span>
+                                </span>
+                                <div class="cst-progress-bar">
+                                    <div class="cst-progress-fill" id="cstProgressFill"></div>
                                 </div>
-                                <div class="field">
-                                    <label for="email">Correo</label>
-                                    <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" />
+                                <span class="cst-step-label" data-step="2">
+                                    <span class="cst-step-dot"></span>
+                                    <span class="cst-step-text">Tu proyecto</span>
+                                </span>
+                                <div class="cst-progress-bar">
+                                    <div class="cst-progress-fill cst-progress-fill--2" id="cstProgressFill2"></div>
                                 </div>
+                                <span class="cst-step-label" data-step="3">
+                                    <span class="cst-step-dot"></span>
+                                    <span class="cst-step-text">Mensaje</span>
+                                </span>
                             </div>
-                            <div class="field">
-                                <label for="phone">Teléfono</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+57 300 000 0000" autocomplete="tel" />
-                            </div>
-                            <div class="field">
-                                <label for="message">Mensaje</label>
-                                <textarea id="message" name="message" rows="4" placeholder="Cuéntanos qué necesitas"></textarea>
-                            </div>
-                            <button type="submit" class="contact-submit">
-                                <span>Enviar mensaje</span>
-                                <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-                            </button>
-                        </form>
+                        </div>
+
+                        <!-- Form card -->
+                        <div class="cst-card">
+                            <form class="contact-form" id="contactForm" novalidate>
+
+                                <!-- Step 1 -->
+                                <div class="cst-panel is-active" data-panel="1">
+                                    <p class="cst-panel-hint">Cuéntanos cómo encontrarte</p>
+                                    <div class="field-row">
+                                        <div class="field">
+                                            <label for="name">Nombre</label>
+                                            <input type="text" id="name" name="name" placeholder="Tu nombre completo" autocomplete="name" />
+                                        </div>
+                                        <div class="field">
+                                            <label for="email">Correo</label>
+                                            <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" />
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label for="phone">Teléfono</label>
+                                        <input type="tel" id="phone" name="phone" placeholder="+57 300 000 0000" autocomplete="tel" />
+                                    </div>
+                                </div>
+
+                                <!-- Step 2 -->
+                                <div class="cst-panel" data-panel="2">
+                                    <p class="cst-panel-hint">¿Qué tienes en mente?</p>
+                                    <div class="cst-project-grid">
+                                        <label class="cst-project-option">
+                                            <input type="radio" name="project" value="landing" />
+                                            <span class="cst-project-card" data-accent="yellow">
+                                                <span class="material-symbols-rounded">rocket_launch</span>
+                                                <span class="cst-project-name">Landing Page</span>
+                                            </span>
+                                        </label>
+                                        <label class="cst-project-option">
+                                            <input type="radio" name="project" value="sitio" />
+                                            <span class="cst-project-card" data-accent="green">
+                                                <span class="material-symbols-rounded">language</span>
+                                                <span class="cst-project-name">Sitio Web</span>
+                                            </span>
+                                        </label>
+                                        <label class="cst-project-option">
+                                            <input type="radio" name="project" value="tienda" />
+                                            <span class="cst-project-card" data-accent="red">
+                                                <span class="material-symbols-rounded">storefront</span>
+                                                <span class="cst-project-name">Tienda Online</span>
+                                            </span>
+                                        </label>
+                                        <label class="cst-project-option">
+                                            <input type="radio" name="project" value="app" />
+                                            <span class="cst-project-card" data-accent="blue">
+                                                <span class="material-symbols-rounded">devices</span>
+                                                <span class="cst-project-name">App / Sistema</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Step 3 -->
+                                <div class="cst-panel" data-panel="3">
+                                    <p class="cst-panel-hint">Cuéntanos los detalles de tu proyecto</p>
+                                    <div class="field">
+                                        <label for="message">Mensaje</label>
+                                        <textarea id="message" name="message" rows="5" placeholder="¿Cuál es tu objetivo? ¿Tienes un plazo o presupuesto en mente?"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Nav -->
+                                <div class="cst-nav">
+                                    <button type="button" class="cst-btn-back" id="cstBack" aria-label="Paso anterior">
+                                        <span class="material-symbols-rounded">arrow_back</span>
+                                        <span>Atrás</span>
+                                    </button>
+                                    <button type="button" class="cst-btn-next" id="cstNext">
+                                        <span>Siguiente</span>
+                                        <span class="material-symbols-rounded">arrow_forward</span>
+                                    </button>
+                                    <button type="submit" class="contact-submit" id="cstSubmit" style="display:none">
+                                        <span>Enviar mensaje</span>
+                                        <span class="material-symbols-rounded" aria-hidden="true">send</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
 
-                    <aside class="contact-aside">
-                        <a href="https://wa.me/573000000000" class="contact-wa" target="_blank" rel="noopener">
+                    <!-- Columna lateral: info + canales -->
+                    <aside class="ct-sidebar">
+                        <div class="ct-sidebar-intro">
+                            <p class="ct-sidebar-tagline">Respuesta en menos de 24 h</p>
+                            <p class="ct-sidebar-desc">Cuéntanos tu idea y te damos una propuesta sin costo ni compromiso.</p>
+                        </div>
+
+                        <a href="https://wa.me/573134445196" class="contact-wa" target="_blank" rel="noopener">
                             <span class="contact-wa-icon" aria-hidden="true">
                                 <span class="material-symbols-rounded">chat</span>
                             </span>
                             <span class="contact-wa-body">
                                 <span class="contact-wa-label">La forma más rápida</span>
-                                <span class="contact-wa-title">Escríbenos por WhatsApp</span>
+                                <span class="contact-wa-title">WhatsApp</span>
                             </span>
                             <span class="material-symbols-rounded contact-wa-arrow" aria-hidden="true">arrow_outward</span>
                         </a>
@@ -415,7 +456,14 @@
                             </span>
                             <span class="material-symbols-rounded contact-card-arrow" aria-hidden="true">arrow_outward</span>
                         </a>
+
+                        <div class="ct-sidebar-badges">
+                            <span class="ct-badge"><span class="material-symbols-rounded">verified</span>Trato directo</span>
+                            <span class="ct-badge"><span class="material-symbols-rounded">lock</span>Datos seguros</span>
+                            <span class="ct-badge"><span class="material-symbols-rounded">schedule</span>Sin demoras</span>
+                        </div>
                     </aside>
+
                 </div>
             </div>
         </section>
