@@ -41,6 +41,26 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // --- Highlight de anchor al navegar ---
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", () => {
+            const targetId = link.getAttribute("href").slice(1);
+            if (!targetId) return;
+            const target = document.getElementById(targetId);
+            if (!target) return;
+            target.classList.remove("anchor-flash");
+            void target.offsetWidth;
+            setTimeout(() => {
+                target.classList.add("anchor-flash");
+                target.addEventListener(
+                    "animationend",
+                    () => target.classList.remove("anchor-flash"),
+                    { once: true }
+                );
+            }, 600);
+        });
+    });
+
     // El carrusel fue reemplazado por una rejilla estática de tarjetas glass.
 
     // --- Reveal al hacer scroll (encabezado de servicios) ---
